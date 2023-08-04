@@ -18,10 +18,10 @@ pipeline {
           }
       }
       post {
-           always {
-                mail to: "menganiravivarma4922@gmail.com",
-                subject: "check the status",
-                body:    "CHECK"
+          always {
+               mail to: "menganiravivarma4922@gmail.com",
+               subject: "check the status",
+               body:    "CHECK"
            }
       }
 }
