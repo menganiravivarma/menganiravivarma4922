@@ -1,9 +1,9 @@
 pipeline {
      agent any
      stages {
-          stage ("build") {
+          stage ("git clone") {
               steps {
-                  echo 'building the application'
+                  git 'https://github.com/menganiravivarma/menganiravivarma4922.git'
               }
           }
           stage ("test") {
