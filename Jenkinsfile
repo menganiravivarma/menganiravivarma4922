@@ -16,11 +16,5 @@ pipeline {
                    echo 'deploying the application'
                }
           }
-      /*post {
-          always {
-               mail to: "menganiravivarma4922@gmail.com",
-               subject: "check the status",
-               body:    "CHECK"
-           }
-      }*/
+      }
 }
