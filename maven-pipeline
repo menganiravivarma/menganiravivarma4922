@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage ('git checkout') {
+            steps { 
+                git branch: 'main', credentialsId: 'gitintegration', url: 'https://github.com/menganiravivarma/maven-hello-world.git'
+            }    
+        }
+        stage ('maven test') {
+            steps {
+                sh 'mvn clean test'
+                
+            }
+        }
+    }
+}
