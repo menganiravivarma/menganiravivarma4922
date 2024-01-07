@@ -4,13 +4,27 @@ pipeline {
     stages {
         stage ('git checkout') {
             steps { 
-                git branch: 'main', credentialsId: 'gitintegration', url: 'https://github.com/menganiravivarma/maven-hello-world.git'
+                git 'https://github.com/venkat90107/java-hello-world-with-maven'
             }    
         }
         stage ('maven test') {
             steps {
                 sh 'mvn clean test'
                 
+            }
+        }
+        stage ('maven build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage ('upload artifacts') {
+            steps {
+                rtServer (
+                    id: "artifactory",
+                    url: "http://100.26.184.26:8082/artifactory",
+                    credentilasId: "FROG_CRED"
+                )
             }
         }
     }
